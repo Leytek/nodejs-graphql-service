@@ -1,5 +1,5 @@
-import { RESTDataSource, RequestOptions } from "apollo-datasource-rest";
-import { Album } from "../album";
+import { RESTDataSource, RequestOptions } from 'apollo-datasource-rest';
+import { Album } from '../album';
 
 export class AlbumsAPI extends RESTDataSource {
   constructor() {
@@ -8,32 +8,32 @@ export class AlbumsAPI extends RESTDataSource {
   }
 
   async willSendRequest(request: RequestOptions) {
-    request.headers.set("Authorization", `Bearer ${this.context.token}`);
+    request.headers.set('Authorization', `Bearer ${this.context.token}`);
   }
 
-  getOne(albumId: string) {
-    return this.get(`/${albumId}/`);
+  getOne(id: string) {
+    return this.get(`/${id}/`);
   }
 
-  getAll(params: any) {
+  getAll(params = {}) {
     let query = new URLSearchParams();
     Object.entries(params).forEach(([key, value]) => {
       if (!Array.isArray(value)) {
         query.append(key, value as string);
       }
     });
-    return this.get("/", query);
+    return this.get('/', query);
   }
 
-  create(album: Album) {
-    return this.post("/", album);
+  create(item: Album) {
+    return this.post('/', item);
   }
 
-  deleteOne(albumId: string) {
-    return this.delete(`/${albumId}/`);
+  deleteOne(id: string) {
+    return this.delete(`/${id}/`);
   }
 
-  update(album: Album) {
-    return this.put(`/${album.id}/`, album);
+  update(item: Album) {
+    return this.put(`/${item.id}/`, item);
   }
 }

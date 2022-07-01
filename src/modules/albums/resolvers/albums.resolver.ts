@@ -1,4 +1,4 @@
-import {Album} from "../album";
+import { Album } from '../album';
 
 export default {
   Query: {
@@ -6,8 +6,8 @@ export default {
       return dataSources.albumsAPI.getOne(id);
     },
 
-    async albums(_: null, { limit, offset, _id, name, input }: unknown, { dataSources }: unknown) {
-      return (await dataSources.albumsAPI.getAll({ limit, offset, _id, name, ...input })).items;
+    async albums(_: null, { input }: unknown, { dataSources }: unknown) {
+      return (await dataSources.albumsAPI.getAll(input)).items;
     }
   },
 
@@ -43,16 +43,16 @@ export default {
   },
 
   Mutation: {
-    async createAlbum(_: null, { name, input }: unknown, { dataSources }: unknown) {
-      return await dataSources.albumsAPI.create({ name, ...input } as Album);
+    async createAlbum(_: null, { input }: unknown, { dataSources }: unknown) {
+      return await dataSources.albumsAPI.create(input as Album);
     },
 
     async deleteAlbum(_: null, { id }: { id: string }, { dataSources }: unknown) {
       return await dataSources.albumsAPI.deleteOne(id);
     },
 
-    async updateAlbum(_: null, { id, name, input }: unknown, { dataSources }: unknown) {
-      return await dataSources.albumsAPI.update({ id, name, ...input } as Album);
+    async updateAlbum(_: null, { input }: unknown, { dataSources }: unknown) {
+      return await dataSources.albumsAPI.update(input as Album);
     }
   }
 }

@@ -1,5 +1,5 @@
 import { ApolloServer } from 'apollo-server';
-import { ApolloServerPluginLandingPageGraphQLPlayground } from "apollo-server-core";
+import { ApolloServerPluginLandingPageGraphQLPlayground } from 'apollo-server-core';
 import GraphQLHub from './GraphQLHub';
 
 export default class GraphQLApp {
@@ -21,7 +21,7 @@ export default class GraphQLApp {
         ApolloServerPluginLandingPageGraphQLPlayground(),
       ],
       context: ({ req }) => {
-        const token = req.headers.authorization || "";
+        const token = req.headers.authorization ?? '';
         return { token };
       },
     });
