@@ -1,4 +1,5 @@
 import { ApolloServer } from 'apollo-server';
+import { ApolloServerPluginLandingPageGraphQLPlayground } from "apollo-server-core";
 import GraphQLHub from './GraphQLHub';
 
 export default class GraphQLApp {
@@ -16,6 +17,9 @@ export default class GraphQLApp {
       typeDefs,
       resolvers,
       dataSources,
+      plugins: [
+        ApolloServerPluginLandingPageGraphQLPlayground(),
+      ],
       context: ({ req }) => {
         const token = req.headers.authorization || "";
         return { token };
