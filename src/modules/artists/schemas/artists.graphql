@@ -21,7 +21,7 @@ input ArtistCreate {
     middleName: String
     birthDate: String
     birthPlace: String
-    country: String!
+    country: String
     bandsIds: [String]
     instruments: [String]
 }
@@ -39,7 +39,7 @@ input ArtistUpdate {
 }
 
 input ArtistSearch {
-    id: ID
+    _id: ID
     firstName: String
     secondName: String
     middleName: String
