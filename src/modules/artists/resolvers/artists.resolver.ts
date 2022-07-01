@@ -15,7 +15,7 @@ export default {
       if (!bandsIds.length) return;
 
       return bandsIds.map(async (id: string) => {
-        return await dataSources.bandsAPI.getBand(id);
+        return await dataSources.bandsAPI.getOne(id);
       });
     },
   },

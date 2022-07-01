@@ -15,7 +15,7 @@ export default {
       if (!genresIds.length) return;
 
       return genresIds.map(async (id: string) => {
-        return await dataSources.genresAPI.getGenre(id);
+        return await dataSources.genresAPI.getOne(id);
       });
     },
   },

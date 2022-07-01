@@ -16,28 +16,28 @@ export default {
       if (!artistsIds) return;
 
       return artistsIds.map(async (id: string) => {
-        return await dataSources.artistsAPI.getArtist(id);
+        return await dataSources.artistsAPI.getOne(id);
       });
     },
     async bands({ bandsIds }: { bandsIds: [] }, _: null, { dataSources }: unknown) {
       if (!bandsIds) return;
 
       return  bandsIds.map(async (id: string) => {
-        return await dataSources.bandsAPI.getBand(id);
+        return await dataSources.bandsAPI.getOne(id);
       });
     },
     async tracks({ trackIds }: { trackIds: [] }, _: null, { dataSources }: unknown) {
-      if (!trackIds.length) return;
+      if (!trackIds) return;
 
       return trackIds.map(async (id: string) => {
-        return await dataSources.tracksAPI.getTrack(id);
+        return await dataSources.tracksAPI.getOne(id);
       });
     },
     async genres ({ genresIds }: { genresIds: [] }, _: null, { dataSources }: unknown) {
-      if (!genresIds.length) return;
+      if (!genresIds) return;
 
       return genresIds.map(async (id: string) => {
-        return await dataSources.genresAPI.getGenre(id);
+        return await dataSources.genresAPI.getOne(id);
       });
     },
   },
