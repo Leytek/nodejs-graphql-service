@@ -24,8 +24,7 @@ export default {
     async createBand(_: null, { input }: unknown, { dataSources }: unknown) {
       return await dataSources.bandsAPI.create(input as Band);
     },
-    async deleteBand(_: null, { id }: { id: string }, { dataSources }: unknown
-    )  {
+    async deleteBand(_: null, { id }: { id: string }, { dataSources }: unknown) {
       return await dataSources.bandsAPI.deleteOne(id);
     },
     async updateBand(_: null, { input }: unknown, { dataSources }: unknown) {
