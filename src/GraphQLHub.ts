@@ -7,7 +7,7 @@ import favouritesResolver from './modules/favourites/resolvers/favourites.resolv
 import genresResolver from './modules/genres/resolvers/genres.resolver';
 import artistsResolver from './modules/artists/resolvers/artists.resolver';
 import albumsResolver from './modules/albums/resolvers/albums.resolver';
-//import { usersResolver } from './modules/users/resolvers/users.resolver';
+import usersResolver from './modules/users/resolvers/users.resolver';
 
 import { AlbumsAPI } from './modules/albums/services/albums.service';
 import { ArtistsAPI } from './modules/artists/services/artists.service';
@@ -15,6 +15,7 @@ import { BandsAPI } from './modules/bands/services/bands.service';
 import { FavouritesAPI } from './modules/favourites/services/favourites.service';
 import { GenresAPI } from './modules/genres/services/genres.service';
 import { TracksAPI } from './modules/tracks/services/tracks.service';
+import { UsersAPI } from './modules/users/services/users.service';
 
 export default class GraphQLHub {
   public typeDefs;
@@ -29,6 +30,7 @@ export default class GraphQLHub {
         favouritesResolver,
         genresResolver,
         tracksResolver,
+        usersResolver,
     ];
     this.typeDefs = mergeTypeDefs(typesArray);
     this.resolvers = mergeResolvers(resolversArray);
@@ -42,6 +44,7 @@ export default class GraphQLHub {
       favouritesAPI: new FavouritesAPI(),
       genresAPI: new GenresAPI(),
       tracksAPI: new TracksAPI(),
+      usersAPI: new UsersAPI(),
     }
   }
 }
