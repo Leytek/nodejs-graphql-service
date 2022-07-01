@@ -28,7 +28,7 @@ export default class GraphQLApp {
       console.log(`
     🚀  Server is running!
     🔉  Listening on port ${this.PORT}
-    📭  Query at https://studio.apollographql.com/dev
+    📭  Query at http://localhost:${this.PORT}
       `);
     });
   }
