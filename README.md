@@ -13,7 +13,7 @@ Run your own mongodb database at port: 27888, login:mongoadmin, secret:secret
 
 **Installation**
 
-1. Clone/download repo [here](https://github.com/LeninBel/nodejs_graphQL)
+1. Clone/download repo [here](https://github.com/Leytek/nodejs-graphql-service)
 2. `npm install`
 
 **Usage**
