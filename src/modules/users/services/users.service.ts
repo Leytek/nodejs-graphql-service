@@ -15,8 +15,8 @@ export class UsersAPI extends RESTDataSource {
     return this.get(`/${id}/`);
   }
 
-  getJwt(email: string, password: string) {
-    return this.post('/login/', { email, password });
+  getJwt(user: User) {
+    return this.post('/login/', user);
   }
 
   create(item: User) {

@@ -22,6 +22,7 @@ export default {
 
   Mutation: {
     async createArtist(_: null, { input }: unknown, { dataSources }: unknown) {
+      input = {...input};
       return await dataSources.artistsAPI.create(input as Artist);
     },
     async deleteArtist(_: null, { id }: { id: string }, { dataSources }: unknown
@@ -29,6 +30,7 @@ export default {
       return await dataSources.artistsAPI.deleteOne(id);
     },
     async updateArtist(_: null, { input }: unknown, { dataSources }: unknown) {
+      input = {...input};
       return await dataSources.artistsAPI.update(input as Artist);
     },
   },

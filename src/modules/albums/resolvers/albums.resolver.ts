@@ -44,6 +44,7 @@ export default {
 
   Mutation: {
     async createAlbum(_: null, { input }: unknown, { dataSources }: unknown) {
+      input = {...input};
       return await dataSources.albumsAPI.create(input as Album);
     },
 
@@ -52,6 +53,7 @@ export default {
     },
 
     async updateAlbum(_: null, { input }: unknown, { dataSources }: unknown) {
+      input = {...input};
       return await dataSources.albumsAPI.update(input as Album);
     }
   }

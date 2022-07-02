@@ -36,12 +36,14 @@ export default {
 
   Mutation: {
     async createTrack(_: null, { input }: unknown, { dataSources }: unknown) {
+      input = {...input};
       return await dataSources.tracksAPI.create(input as Track);
     },
     async deleteTrack(_: null, { id }: { id: string }, { dataSources }: unknown) {
       return await dataSources.tracksAPI.deleteOne(id);
     },
     async updateTrack(_: null, { input }: unknown, { dataSources }: unknown) {
+      input = {...input};
       return await dataSources.tracksAPI.update(input as Track);
     },
   },

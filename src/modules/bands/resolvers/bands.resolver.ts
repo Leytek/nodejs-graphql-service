@@ -22,12 +22,14 @@ export default {
 
   Mutation: {
     async createBand(_: null, { input }: unknown, { dataSources }: unknown) {
+      input = {...input};
       return await dataSources.bandsAPI.create(input as Band);
     },
     async deleteBand(_: null, { id }: { id: string }, { dataSources }: unknown) {
       return await dataSources.bandsAPI.deleteOne(id);
     },
     async updateBand(_: null, { input }: unknown, { dataSources }: unknown) {
+      input = {...input};
       return await dataSources.bandsAPI.update(input as Band);
     },
   },
